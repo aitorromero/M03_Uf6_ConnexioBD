@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".CalculadoraDPIActivity" >
+
+
+    <TextView
+        android:id="@+id/tvInformacionPantalla"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Información de pantalla"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvResolucionVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvInformacionPantalla"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="20dp"
+        android:text="Resolución vertical" />
+
+    <TextView
+        android:id="@+id/tvResolucionVerticalED"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvResolucionVertical"
+        android:layout_alignBottom="@+id/tvResolucionVertical"
+        android:layout_marginLeft="44dp"
+        android:layout_toRightOf="@+id/tvInformacionPantalla"
+        android:text="valor" />
+
+    <TextView
+        android:id="@+id/tvResolucionHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvResolucionVertical"
+        android:layout_centerVertical="true"
+        android:text="Resolución Horizontal" />
+
+    <TextView
+        android:id="@+id/tvResolucionHorizontalED"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvResolucionHorizontal"
+        android:layout_alignBottom="@+id/tvResolucionHorizontal"
+        android:layout_alignLeft="@+id/tvResolucionVerticalED"
+        android:text="valor" />
+
+    <TextView
+        android:id="@+id/tvDiagonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvResolucionHorizontal"
+        android:layout_below="@+id/tvResolucionHorizontal"
+        android:layout_marginTop="25dp"
+        android:text="Diagonal" />
+
+    <TextView
+        android:id="@+id/tvDiagonalED"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvDiagonal"
+        android:layout_alignLeft="@+id/tvResolucionHorizontalED"
+        android:text="valor" />
+
+    <TextView
+        android:id="@+id/tvPPI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvDiagonal"
+        android:layout_below="@+id/tvDiagonal"
+        android:layout_marginTop="24dp"
+        android:text="PPI" />
+
+    <TextView
+        android:id="@+id/tvPPIED"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvPPI"
+        android:layout_alignLeft="@+id/tvDiagonalED"
+        android:text="valor" />
+
+</RelativeLayout>
+
