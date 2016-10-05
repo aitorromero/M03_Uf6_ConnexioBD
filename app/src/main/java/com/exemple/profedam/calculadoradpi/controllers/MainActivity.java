@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.exemple.profedam.calculadoradpi.R;
+
 import com.exemple.profedam.calculadoradpi.model.Pantalla;
 import com.exemple.profedam.calculadoradpi.utils.MyUtils;
 
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else {
                 if (MyUtils.editTextIsNullOrEmpty(etResHoritzontal)) {
                     Toast.makeText(this, "Falta resolución horizontal", Toast.LENGTH_SHORT).show();
+
+                  //  etResHoritzontal.setFocusable(true);
                     etResHoritzontal.requestFocus();
 
                 }

@@ -1,5 +1,6 @@
 package com.exemple.profedam.calculadoradpi.model;
 
+
 import com.exemple.profedam.calculadoradpi.utils.MyUtils;
 
 /**
@@ -19,7 +20,7 @@ public class Pantalla {
         this.resHoritzontal = resHoritzontal;
         this.resVertical = resVertical;
         this.diagonal = diagonal;
-        this.dpi = calcularDpi();
+        calcularDpi();
     }
     public Pantalla (int resHoritzontal, int resVertical, int dpi)
     {
@@ -61,10 +62,10 @@ public class Pantalla {
         this.diagonal = diagonal;
     }
 
-    private int calcularDpi(){
+    private void calcularDpi(){
 
-        int dpi = (int) (MyUtils.calcularHipotenusa(resHoritzontal, resVertical)/diagonal);
-        return dpi;
+        this.dpi = (int)(MyUtils.calcularHipotenusa(resHoritzontal, resVertical)/diagonal);
+
     }
     private void calcularDiagonal()
     {
