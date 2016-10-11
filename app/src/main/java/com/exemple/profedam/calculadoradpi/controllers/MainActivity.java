@@ -22,24 +22,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /* Cal esbrinar, quina és l'orientació del telèfon */
 
-        WindowManager manager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        Display display = manager.getDefaultDisplay();
+          WindowManager windowManager = (WindowManager) getSystemService (Context.WINDOW_SERVICE);
+          Display display = windowManager.getDefaultDisplay();
+          if (display.getRotation()==Surface.ROTATION_0|| display.getRotation()==Surface.ROTATION_180)
+          {
+              Button btnCalcular = (Button) findViewById(R.id.btnCalcular);
+              btnCalcular.setOnClickListener(this);
+              Toast.makeText (this, "CargarVertical", Toast.LENGTH_SHORT).show();
 
-        if (display.getRotation() == Surface.ROTATION_0 || display.getRotation() == Surface.ROTATION_180) {
-            Toast.makeText(this, "cargarVertical", Toast.LENGTH_SHORT).show();
-            Button btnCalcular = (Button) findViewById(R.id.btnCalcular);
-            btnCalcular.setOnClickListener(this);
-        } else {
-            Toast.makeText(this, "cargarHorizontal", Toast.LENGTH_SHORT).show();
-             cargarHorizontal(display);
-        }
+          }
+          else
+          {
+              Toast.makeText (this, "CargarHorizontal", Toast.LENGTH_SHORT).show();
+              cargarHorizontal(display);
+
+          }
+
+
+
+
 
 
     }
+
 
     @Override
     public void onClick(View v) {
@@ -89,33 +100,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         /* TODO Obtener los valores de las resoluciones y rellenar los textviews */
 
-        DisplayMetrics displayMetrics=new DisplayMetrics();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+
+        // Carga los valores del display en displaymetrics
+
         display.getMetrics(displayMetrics);
 
-        int dpi = displayMetrics.densityDpi;
-        int resVertical = displayMetrics.heightPixels;
-        int resHorizontal = displayMetrics.widthPixels;
 
-        Pantalla pantalla = new Pantalla(resHorizontal, resVertical, dpi);
-
-        double diagonal = pantalla.getDiagonal();
-
-        TextView tvResHoritzontal = (TextView) findViewById (R.id.tvResolucionHorizontalED);
         TextView tvResVertical = (TextView) findViewById (R.id.tvResolucionVerticalED);
-        TextView tvDiagonal = (TextView) findViewById (R.id.tvDiagonalED);
-        TextView tvDPI = (TextView) findViewById (R.id.tvPPIED);
+        tvResVertical.setText (String.valueOf(displayMetrics.heightPixels));
 
-        tvResHoritzontal.setText(String.valueOf(resHorizontal));
-        tvResVertical.setText(String.valueOf(resVertical));
-        tvDiagonal.setText(String.valueOf(diagonal));
-        tvDPI.setText(String.valueOf(dpi));
+        TextView tvResHorizontal = (TextView) findViewById(R.id.tvResolucionHorizontalED);
+        tvResHorizontal.setText (String.valueOf(displayMetrics.widthPixels));
+
+        TextView tvPPI = (TextView) findViewById (R.id.tvPPIED);
+        tvPPI.setText (String.valueOf(displayMetrics.densityDpi));
+
+        Pantalla pantalla = new Pantalla (displayMetrics.heightPixels, displayMetrics.widthPixels, displayMetrics.densityDpi);
+        TextView tvDiagonal = (TextView) findViewById (R.id.tvDiagonalED);
+        tvDiagonal.setText (String.valueOf(pantalla.getDiagonal()));
+
+
+
+
+
+        // tvResVertical.setText ("Rv:" + displayMetrics.heightPixels);
+
+
+
+
 
 
 
 
     }
-
-
 
 
 

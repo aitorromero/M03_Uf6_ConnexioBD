@@ -69,7 +69,7 @@ public class Pantalla {
     }
     private void calcularDiagonal()
     {
-       diagonal = MyUtils.round(MyUtils.calcularHipotenusa(resHoritzontal, resVertical)/dpi, 1);
+      this.diagonal = MyUtils.round(MyUtils.calcularHipotenusa(resHoritzontal, resVertical)/dpi, 1);
     }
 }
 

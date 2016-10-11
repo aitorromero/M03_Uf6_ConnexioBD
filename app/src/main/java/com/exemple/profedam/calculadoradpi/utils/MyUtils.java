@@ -32,6 +32,7 @@ public class MyUtils {
     {
         int cifras =(int) Math.pow(10,digitos);
 
+         //Math.rint redondea al número entero con 0 decimales
         return Math.rint(numero*cifras)/cifras;
     }
 
